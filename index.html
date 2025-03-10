@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Teleprompter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="input-container">
+        <textarea id="scriptInput" placeholder="Enter your script here...">Welcome to the Teleprompter App!
+
+This is a simple teleprompter that allows you to:
+- Adjust text size
+- Control scroll speed
+- Mirror the text for professional teleprompter setups
+- Go fullscreen for a professional reading experience
+
+When mirrored, this text will appear reversed on screen but will read correctly when viewed in a mirror reflection.
+
+Click the "Fullscreen & Start" button to begin in fullscreen mode.
+Hover at the bottom of the screen to access controls while in fullscreen.</textarea>
+        <button id="updateBtn">Update Text</button>
+    </div>
+    
+    <div class="control-panel">
+        <div class="control-group">
+            <button id="startBtn">Start</button>
+            <button id="stopBtn" disabled>Stop</button>
+            <button id="fullscreenBtn">Fullscreen & Start</button>
+        </div>
+        
+        <div class="control-group">
+            <label for="fontSizeSlider">Font Size: <span id="fontSizeValue">40</span>px</label>
+            <input type="range" id="fontSizeSlider" min="20" max="100" value="40">
+        </div>
+        
+        <div class="control-group">
+            <label for="speedSlider">Speed: <span id="speedValue">2</span></label>
+            <input type="range" id="speedSlider" min="1" max="10" value="2">
+        </div>
+        
+        <div class="control-group">
+            <label for="mirrorToggle">Mirror Text:</label>
+            <input type="checkbox" id="mirrorToggle">
+        </div>
+    </div>
+    
+    <div id="teleprompterContainer" class="teleprompter-container">
+        <div id="teleprompterText" class="teleprompter-text"></div>
+        
+        <!-- Fullscreen controls overlay -->
+        <div class="fullscreen-controls">
+            <button id="fsStopBtn">Stop</button>
+            <button id="fsStartBtn">Start</button>
+            <button id="fsExitBtn">Exit Fullscreen</button>
+            
+            <div class="control-group">
+                <label for="fsSpeedSlider">Speed:</label>
+                <input type="range" id="fsSpeedSlider" min="1" max="10" value="2">
+            </div>
+            
+            <div class="control-group">
+                <label for="fsFontSizeSlider">Size:</label>
+                <input type="range" id="fsFontSizeSlider" min="20" max="100" value="40">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
